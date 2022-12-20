@@ -5,11 +5,40 @@ import singleton.ListSingleton;
 
 public class Main {
 	Scanner scan = new Scanner(System.in);
+	
 	public void menu() {
 		System.out.println("1. Absen Karyawan");
 		System.out.println("2. Login Admin");
 		System.out.println("3. Exit");
 	}
+	
+	public void adminMenu() {
+		System.out.println("1. Liat Absen");
+		System.out.println("2. Update Absen");
+		System.out.println("3. Delete Absen");
+		System.out.println("4. Return");
+		
+	}
+	
+	public void admin() {
+		ListSingleton listSingleton = ListSingleton.getInstance();
+		adminMenu();
+		System.out.print("Choose: ");
+		int choose = scan.nextInt();
+		if(choose == 1) {
+			listSingleton.view();
+		}
+		if(choose == 2) {
+			listSingleton.update();
+		}
+		if(choose == 3) {
+			listSingleton.delete();
+		}
+		if(choose == 4) {
+			return;
+		}
+	}
+	
 	
 	public void addKaryawan() {
 		int id = 0;
@@ -24,8 +53,10 @@ public class Main {
 		System.out.print("Input tanggal: ");
 		date = scan.nextLine();
 		
+		Karyawan karyawan = new Karyawan(id, name, date);
 		ListSingleton listSingleton = ListSingleton.getInstance();
-		listSingleton.add(new Karyawan(id,name,date));
+		listSingleton.add(karyawan);
+		System.out.println();
 	}
 	
 	public Main() {
@@ -44,10 +75,10 @@ public class Main {
 				}
 				switch (menu) {
 				case 1:
-					
+					addKaryawan();
 					break;
 				case 2:
-					
+					admin();
 					break;
 				case 3:
 					System.exit(0);

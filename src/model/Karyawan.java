@@ -11,7 +11,14 @@ public class Karyawan {
 		this.name = name;
 		this.date = date;
 	}
-
+	
+	public void show() {
+		System.out.println("ID      : "+id);
+		System.out.println("Nama    : "+name);
+		System.out.println("Tanggal : "+date);
+		System.out.println();
+	}
+	
 	public int getId() {
 		return id;
 	}

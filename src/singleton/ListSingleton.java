@@ -84,7 +84,7 @@ public class ListSingleton {
 		do {
 			System.out.print("Choose the list of absence you want to delete [1-"+listKaryawan.size()+"]: ");
 			num = scan.nextInt();
-		} while (num>1 || num < listKaryawan.size());
+		} while (num<1 || num > listKaryawan.size());
 		
 		
 		num-=1;
